@@ -1,12 +1,71 @@
-# React + Vite
+# 📝 React Form Validation App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, user-friendly form built with **React** and **Tailwind CSS**, featuring real-time validation, password strength checking, and dynamic UI updates. Upon successful submission, user data is displayed on a separate success page using React Router.
 
-Currently, two official plugins are available:
+## 🔧 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Validations for:
+  - Email, phone number, PAN, Aadhar
+  - Password strength (live feedback)
+  - Required fields
+- Toggle show/hide password
+- Dynamic city dropdown based on selected country
+- Disabled submit button until form is valid
+- Clean success page displaying all form data
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧠 How It Works
+
+### FormComponent.jsx
+
+- Uses `useState` and `useEffect` for state and real-time validation.
+- Contains custom validators:
+  - `emailValidator`
+  - `phoneValidator`
+  - `panValidator`
+  - `aadharValidator`
+  - `checkPasswordStrength()` for live password score
+- Password field includes:
+  - Toggle visibility (eye icon)
+  - Visual strength meter
+- Dynamic dropdowns:
+  - Cities change based on selected country
+- Form is only submittable when all validations pass.
+- On submit, data is passed to `/success` using React Router’s `navigate`.
+
+### SuccessComponent.jsx
+
+- Uses `useLocation()` to retrieve form data.
+- Displays submitted values in a clean card layout.
+- Ignores unnecessary data like `showPassword`.
+
+## 🚀 Getting Started
+
+Follow these steps to clone and run the project locally:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Annibadakh/CSI-Assignment1
+cd CSI-Assignment1
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+
+```
+
+### 3. Run the development server
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+### 4. Open in browser
+Visit: http://localhost:5173
